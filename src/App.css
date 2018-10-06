@@ -30,3 +30,33 @@
     transform: rotate(360deg);
   }
 }
+
+#map {
+  height: 100vh;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map{
+      height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+
+.mapContainer {
+  background: blue none repeat scroll 0 0;
+  height: 97%;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  /* top: 100px; */
+  width: 50%;
+  z-index: 1;
+}
