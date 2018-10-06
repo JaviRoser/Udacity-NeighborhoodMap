@@ -44,7 +44,7 @@ class APIhelper {
 
 export default class SquareAPI {
 	static search(urlPrams) {
-		return APIhelper.fetchData("/venues/explore", "GET", urlPrams);
+		return APIhelper.fetchData("/venues/search", "GET", urlPrams);
 	}
 	static getBBQDetails(VENUE_ID) {
 		return APIhelper.fetchData(`/venues/${VENUE_ID}`, "GET");

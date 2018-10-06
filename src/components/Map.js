@@ -3,14 +3,14 @@ import {
 	withScriptjs,
 	withGoogleMap,
 	GoogleMap,
-	Marker
+	Marker,
+	InfoWindow
 } from "react-google-maps";
 
 const MyMapComponent = withScriptjs(
 	withGoogleMap(props => (
 		<GoogleMap
 			defaultZoom={14}
-			
 			defaultCenter={{ lat: 40.731115414225094, lng: -74.16149205544018 }}
 		>
 			{props.markers &&
@@ -20,7 +20,14 @@ const MyMapComponent = withScriptjs(
 						<Marker
 							key={index}
 							position={{ lat: marker.lat, lng: marker.lng }}
-						/>
+						    onClick={()=>props.handleMarkerClick(marker)}
+						>
+							{marker.isOpen && (
+								<InfoWindow>
+									<p>Hello Word</p>
+								</InfoWindow>
+							)}
+						</Marker>
 					))}
 		</GoogleMap>
 	))
