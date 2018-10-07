@@ -4,22 +4,43 @@ import SquareAPI from "./API/API.js";
 import Map from "./components/Map.js";
 
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
+	// constructor() {
+		// super();
+		state = {
 			bbqPlaces: [],
 			markers: []
 		};
-	}
+	// }
+
+	/*To handle when a marker is clicked*/
 	markerIsClicked = marker => {
-		this.closeMarkers();
+		this.closeInfoWindowMarkers();
 		console.log(marker);
 		marker.isOpen = true;
 		console.log(this.state.markers);
 		this.setState({ markers: Object.assign(this.state.markers, marker) });
+		const venue = this.state.venues.find(
+			bbqPlace => bbqPlace.id === marker.id
+		);
+
+		console.log(venue, "single venue");
+		SquareAPI.getBBQDetails(marker.id).then(bbqDetailsRespond => {
+			const newBBQPlaceAndMarkerMatch = Object.assign(
+				venue,
+				bbqDetailsRespond.response.venue
+			);
+			// console.log(newBBQPlaceAndMarkerMatch)
+			this.setState({
+				venues: Object.assign(
+					this.state.venues,
+					newBBQPlaceAndMarkerMatch
+				)
+			});
+		});
 	};
 
-	closeMarkers = () => {
+	/**/
+	closeInfoWindowMarkers = () => {
 		const markers = this.state.markers.map(marker => {
 			marker.isOpen = false;
 			return marker;
@@ -30,7 +51,7 @@ class App extends Component {
 	componentDidMount() {
 		SquareAPI.search({
 			near: "Newark, NJ",
-			query: "bbq joint",
+			query: "bbq",
 			limit: 5
 		}).then(placesFound => {
 			console.log(placesFound);
@@ -40,7 +61,8 @@ class App extends Component {
 					lat: bbqPlace.location.lat,
 					lng: bbqPlace.location.lng,
 					isOpen: false,
-					isVisible: true
+					isVisible: true,
+					id: bbqPlace.id
 				};
 			});
 
