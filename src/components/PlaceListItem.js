@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-export class PlaceListItem extends Component {
+export default class PlaceListItem extends Component {
 	render() {
 		return (
-			<div></div>
+			<li className="bbqPlacesListItem">
+				<p>{this.props.name}</p>
+			</li>
 		);
 	}
 }

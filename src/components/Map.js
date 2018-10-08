@@ -59,7 +59,7 @@ export default class Map extends Component {
 				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
 				loadingElement={<div style={{ height: `100%` }} />}
 				containerElement={<div style={{ height: `400px` }} />}
-				mapElement={<div style={{ height: `100%` }} />}
+				mapElement={<div style={{ height: `100vh` }} />}
 			/>
 		);
 	}

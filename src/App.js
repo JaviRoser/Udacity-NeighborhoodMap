@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import "./App.css";
 import SquareAPI from "./API/API.js";
 import Map from "./components/Map.js";
+import SideBar from "./components/SideBar.js";
 
 class App extends Component {
 	// constructor() {
-		// super();
-		state = {
-			bbqPlaces: [],
-			markers: []
-		};
+	// super();
+	state = {
+		bbqPlaces: [],
+		markers: []
+	};
 	// }
 
 	/*To handle when a marker is clicked*/
@@ -72,6 +73,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<SideBar {...this.state} />
 				<main className="mapContainer">
 					<Map
 						{...this.state}
