@@ -10,8 +10,8 @@ class App extends Component {
 	state = {
 		bbqPlaces: [],
 		markers: [],
-		/*forrest */
-		updateSuperState:obj=>{
+		/*Forrest*/
+		updateSuperState: obj => {
 			this.setState(obj);
 		}
 	};
@@ -20,21 +20,19 @@ class App extends Component {
 	/*To handle when a marker is clicked*/
 	markerIsClicked = marker => {
 		this.closeInfoWindowMarkers();
-		console.log(marker);
+
 		marker.isOpen = true;
-		console.log(this.state.markers);
+
 		this.setState({ markers: Object.assign(this.state.markers, marker) });
 		const venue = this.state.venues.find(
 			bbqPlace => bbqPlace.id === marker.id
 		);
 
-		console.log(venue, "single venue");
 		SquareAPI.getBBQDetails(marker.id).then(bbqDetailsRespond => {
 			const newBBQPlaceAndMarkerMatch = Object.assign(
 				venue,
 				bbqDetailsRespond.response.venue
 			);
-			// console.log(newBBQPlaceAndMarkerMatch)
 			this.setState({
 				venues: Object.assign(
 					this.state.venues,
@@ -56,7 +54,9 @@ class App extends Component {
 	/*Call when a list item is clicked*/
 
 	onClickingAListItem = venue => {
-		const marker= this.state.markers.find(marker=>marker.id===venue.id)
+		const marker = this.state.markers.find(
+			marker => marker.id === venue.id
+		);
 		this.markerIsClicked(marker);
 		console.log(venue);
 	};
@@ -66,7 +66,7 @@ class App extends Component {
 			query: "bbq",
 			limit: 5
 		}).then(placesFound => {
-			console.log(placesFound);
+			
 			const { venues } = placesFound.response;
 			const markers = venues.map(bbqPlace => {
 				return {
