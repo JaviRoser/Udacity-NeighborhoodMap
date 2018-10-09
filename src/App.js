@@ -9,7 +9,11 @@ class App extends Component {
 	// super();
 	state = {
 		bbqPlaces: [],
-		markers: []
+		markers: [],
+		/*forrest */
+		updateSuperState:obj=>{
+			this.setState(obj);
+		}
 	};
 	// }
 
@@ -49,6 +53,13 @@ class App extends Component {
 		this.setState({ markers: Object.assign(this.state.markers, markers) });
 	};
 
+	/*Call when a list item is clicked*/
+
+	onClickingAListItem = venue => {
+		const marker= this.state.markers.find(marker=>marker.id===venue.id)
+		this.markerIsClicked(marker);
+		console.log(venue);
+	};
 	componentDidMount() {
 		SquareAPI.search({
 			near: "Newark, NJ",
@@ -73,7 +84,10 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<SideBar {...this.state} />
+				<SideBar
+					{...this.state}
+					onClickingAListItem={this.onClickingAListItem}
+				/>
 				<main className="mapContainer">
 					<Map
 						{...this.state}

@@ -72,4 +72,5 @@ body {
 
 .bbqPlacesListItem {
   list-style: none;
+  cursor:pointer;
 }
