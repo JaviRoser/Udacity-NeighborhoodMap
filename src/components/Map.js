@@ -21,9 +21,8 @@ const MyMapComponent = withScriptjs(
 						const venueData = props.venues.find(
 							bbqPlace => bbqPlace.id === marker.id
 						);
-               
+
 						return (
-							
 							<Marker
 								animation={
 									arr.length === 1
@@ -38,7 +37,8 @@ const MyMapComponent = withScriptjs(
 									venueData.bestPhoto && (
 										<InfoWindow>
 											<React.Fragment>
-												<p>{venueData.name}</p>
+												<p className="restaurantNameInfoWindow">{venueData.name}</p>
+
 												<img
 													src={`${
 														venueData.bestPhoto
@@ -47,8 +47,28 @@ const MyMapComponent = withScriptjs(
 														venueData.bestPhoto
 															.suffix
 													}`}
-													alt="BBQ Place"
+													alt="{`${venueData.name}`}"
 												/>
+												<div className="markersInfowindow">
+													<p>
+														{
+															venueData.location
+																.formattedAddress[0]
+														}
+													</p>
+													<p>
+														{
+															venueData.location
+																.formattedAddress[1]
+														}
+													</p>
+													<p>
+														{
+															venueData.location
+																.formattedAddress[2]
+														}
+													</p>
+												</div>
 											</React.Fragment>
 										</InfoWindow>
 									)}
@@ -61,7 +81,6 @@ const MyMapComponent = withScriptjs(
 
 export default class Map extends Component {
 	render() {
-
 		return (
 			<MyMapComponent
 				{...this.props}

@@ -13,6 +13,17 @@ class APIhelper {
 			.map(key => `${key}=${keys[key]}`)
 			.join("&");
 	}
+	/*Handling API Error Codes (https://medium.com/@yoniweisbrod/interacting-with-apis-using-react-native-fetch-9733f28566bb)*/
+
+	static checkResponseStatus(res) {
+		if (res.ok) {
+			return res;
+		} else {
+			let errorFound = new errorFound(res.statusText);
+			errorFound = res;
+			throw res;
+		}
+	}
 
 	static urlPramsBuilder(urlPrams) {
 		if (!urlPrams) {
@@ -28,6 +39,7 @@ class APIhelper {
 			Accept: "application/json"
 		};
 	}
+
 	static fetchData(endPoint, method, urlPrams) {
 		let requestData = {
 			method,
@@ -38,7 +50,12 @@ class APIhelper {
 				urlPrams
 			)}`,
 			requestData
-		).then(res => res.json());
+		)
+			.then(APIhelper.checkStatus)
+			.then(res => res.json())
+			.catch(errorFound => {
+				alert("Error while fetching data from foursquare");
+			});
 	}
 }
 

@@ -8,6 +8,7 @@ export default class PlaceListItem extends Component {
 				onClick={() => this.props.onClickingAListItem(this.props)}
 			>
 				<p>{this.props.name}</p>
+
 			</li>
 		);
 	}

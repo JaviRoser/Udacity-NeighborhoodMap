@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import PlaceList from "./PlaceList.js";
 import "../App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch);
+
 export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
 		listBBQPlaces: []
 	};
+
+	/*Update list when user types in a search*/
 
 	filterBBQPlaces = inputQuery => {
 		if (this.state.inputQuery.trim() !== "") {
@@ -42,20 +49,28 @@ export default class SideBar extends Component {
 	render() {
 		return (
 			<div className="SideBar">
-				<input
-					type={"search"}
-					id={"inputSearch"}
-					value={this.state.inputQuery}
-					aria-label="Filter/Search"
-					placeholder="Search favorite BBQ Joint"
-					onChange={inputQuery => this.handleInputQuery(inputQuery)}
-					role="search"
-				/>
+
+					
+					<input
+						type={"search"}
+						id={"inputSearch"}
+						value={this.state.inputQuery}
+						aria-label="Filter/Search"
+						placeholder="Search favorite BBQ Joint"
+						onChange={inputQuery =>
+							this.handleInputQuery(inputQuery)
+						}
+						role="search"
+					/>
+				
 				<PlaceList
 					{...this.props}
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
+				<footer className="fourSquareBrand">
+					Powered By FourSquare
+				</footer>
 			</div>
 		);
 	}

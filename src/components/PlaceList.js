@@ -12,7 +12,9 @@ export default class PlaceList extends Component {
 							{...bbqPlace}
 							onClickingAListItem={this.props.onClickingAListItem}
 						/>
+
 					))}
+					
 			</ol>
 		);
 	}

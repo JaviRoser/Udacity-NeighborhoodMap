@@ -3,26 +3,33 @@ import "./App.css";
 import SquareAPI from "./API/API.js";
 import Map from "./components/Map.js";
 import SideBar from "./components/SideBar.js";
+/*Font Awesome*/
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+// <i class="fas fa-utensils"></i>
+// <i class="fab fa-foursquare"></i>
+
+library.add(faUtensils,faSearch);
+
 
 class App extends Component {
-	// constructor() {
-	// super();
 	state = {
 		bbqPlaces: [],
 		markers: [],
-		/*Forrest*/
+		/*Forrest componentDidMount*/
 		updateSuperState: obj => {
 			this.setState(obj);
 		}
 	};
-	// }
 
-	/*To handle when a marker is clicked*/
+	/* Function handle when a marker is clicked*/
+
 	markerIsClicked = marker => {
 		this.closeInfoWindowMarkers();
-
 		marker.isOpen = true;
-
 		this.setState({ markers: Object.assign(this.state.markers, marker) });
 		const venue = this.state.venues.find(
 			bbqPlace => bbqPlace.id === marker.id
@@ -42,7 +49,7 @@ class App extends Component {
 		});
 	};
 
-	/**/
+	/*Close all the Marker's infowindow*/
 	closeInfoWindowMarkers = () => {
 		const markers = this.state.markers.map(marker => {
 			marker.isOpen = false;
@@ -52,22 +59,23 @@ class App extends Component {
 	};
 
 	/*Call when a list item is clicked*/
-
 	onClickingAListItem = venue => {
 		const marker = this.state.markers.find(
 			marker => marker.id === venue.id
 		);
 		this.markerIsClicked(marker);
-		console.log(venue);
 	};
 	componentDidMount() {
 		SquareAPI.search({
-			near: "Newark, NJ",
+			/*Newark NJ*/
+			ll: "40.7282155,-74.1682744",
 			query: "bbq",
+			radius: 1000,
 			limit: 5
 		}).then(placesFound => {
-			
 			const { venues } = placesFound.response;
+			console.log(placesFound);
+
 			const markers = venues.map(bbqPlace => {
 				return {
 					lat: bbqPlace.location.lat,
@@ -77,13 +85,17 @@ class App extends Component {
 					id: bbqPlace.id
 				};
 			});
-
+			console.log(placesFound.response);
 			this.setState({ venues, markers });
 		});
 	}
 	render() {
 		return (
 			<div className="App">
+				<div className="App-header">
+					<FontAwesomeIcon className="iconHeader" icon="utensils" />
+					Newark BBQ Places
+				</div>
 				<SideBar
 					{...this.state}
 					onClickingAListItem={this.onClickingAListItem}
