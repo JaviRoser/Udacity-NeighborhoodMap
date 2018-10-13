@@ -30,14 +30,19 @@ const MyMapComponent = withScriptjs(
 										: google.maps.Animation.DROP
 								}
 								key={index}
-								position={{ lat: marker.lat, lng: marker.lng }}
+								position={{
+									lat: parseFloat(marker.lat),
+									lng: parseFloat(marker.lng)
+								}}
 								onClick={() => props.handleMarkerClick(marker)}
 							>
 								{marker.isOpen &&
 									venueData.bestPhoto && (
 										<InfoWindow>
 											<React.Fragment>
-												<p className="restaurantNameInfoWindow">{venueData.name}</p>
+												<p className="restaurantNameInfoWindow;">
+													{venueData.name}
+												</p>
 
 												<img
 													src={`${
@@ -80,9 +85,11 @@ const MyMapComponent = withScriptjs(
 );
 
 export default class Map extends Component {
+
 	render() {
 		return (
 			<MyMapComponent
+				role="application"
 				{...this.props}
 				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
 				loadingElement={<div style={{ height: `100%` }} />}

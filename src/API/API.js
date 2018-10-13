@@ -1,3 +1,7 @@
+/*Coded by Forrest Walker
+This Helper is part of a walkthorugh series on 
+https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP*/
+
 class APIhelper {
 	static baseURL() {
 		return "https://api.foursquare.com/v2";
@@ -12,17 +16,6 @@ class APIhelper {
 		return Object.keys(keys)
 			.map(key => `${key}=${keys[key]}`)
 			.join("&");
-	}
-	/*Handling API Error Codes (https://medium.com/@yoniweisbrod/interacting-with-apis-using-react-native-fetch-9733f28566bb)*/
-
-	static checkResponseStatus(res) {
-		if (res.ok) {
-			return res;
-		} else {
-			let errorFound = new errorFound(res.statusText);
-			errorFound = res;
-			throw res;
-		}
 	}
 
 	static urlPramsBuilder(urlPrams) {
@@ -40,6 +33,17 @@ class APIhelper {
 		};
 	}
 
+	/*Handling API Error Codes (https://medium.com/@yoniweisbrod/interacting-with-apis-using-react-native-fetch-9733f28566bb)*/
+
+	static checkResponseStatus(res) {
+		if (res.ok) {
+			return res;
+		} else {
+			let errorFound = new errorFound(res.statusText);
+			errorFound = res;
+			throw res;
+		}
+	}
 	static fetchData(endPoint, method, urlPrams) {
 		let requestData = {
 			method,

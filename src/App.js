@@ -3,13 +3,12 @@ import "./App.css";
 import SquareAPI from "./API/API.js";
 import Map from "./components/Map.js";
 import SideBar from "./components/SideBar.js";
-/*Font Awesome*/
+/*Font Awesome: Allow to use fontAwesome Icons*/
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { slide as Menu } from 'react-burger-menu'
-
+import { slide as Menu } from "react-burger-menu";
 
 library.add(faUtensils, faSearch);
 
@@ -95,10 +94,10 @@ class App extends Component {
 					Newark BBQ Places
 				</div>
 				<Menu>
-				<SideBar
-					{...this.state}
-					onClickingAListItem={this.onClickingAListItem}
-				/>
+					<SideBar
+						{...this.state}
+						onClickingAListItem={this.onClickingAListItem}
+					/>
 				</Menu>
 				<main className="mapContainer">
 					<Map

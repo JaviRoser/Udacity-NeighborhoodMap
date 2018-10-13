@@ -30,7 +30,7 @@
 }
 
 #map {
-  height: 70vh;
+  height: 100vh;
   width: 100%;
 }
 
@@ -121,17 +121,7 @@ ol {
   color: var(--main-color);
 }
 
-/* @media screen and (max-width: 768px) {
-
-     .mapContainer {
-         height: 100px;
-         position: relative;
-         top: 400px;
-         width: 100%;
-     }
-   }*/
-
-/*Hamburguer Menu*/
+/*******************Hamburguer Menu*********************/
 
 #page-wrap {
   text-align: center;
@@ -189,3 +179,19 @@ ol {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+/********Mobile Layout*/
+
+/*Ipad Mini*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .bm-burger-button {
+    top: 30px;
+  }
+}
+/*
+@media screen and (max-width: 768px) {
+   Position and sizing of burger button 
+  .bm-burger-button {
+    top: 40px;
+  }
+}*/
