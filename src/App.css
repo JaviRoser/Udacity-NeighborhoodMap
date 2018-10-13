@@ -30,11 +30,11 @@
 }
 
 #map {
-  height: 100vh;
+  height: 70vh;
   width: 100%;
 }
 
-.iconHeader{
+.iconHeader {
   padding: 0.4em;
 }
 html,
@@ -47,29 +47,11 @@ body {
 
 .mapContainer {
   background: blue none repeat scroll 0 0;
-  height: 97%;
+  height: 100vh;
   width: 100%;
-  position: fixed;
-  right: 0;
-  width: 75%;
-  z-index: 1;
 }
 
 /**********************SideBar ************************/
-.SideBar {
-  height: calc(100vh-40px);
-  width: 319px;
-  position: fixed;
-  max-width: calc(100%);
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  z-index: 1;
-
-  color: #355c7d;
-  font-weight: 500;
-  overflow-x: hidden;
-}
 
 #inputSearch {
   width: 100%;
@@ -78,57 +60,66 @@ body {
   padding: 12px;
   border: 1px solid #eee;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
 }
 
-.inputAndSearchIcon{
-  display:flex;
+.inputAndSearchIcon {
+  display: flex;
   flex-direction: row;
 }
-.iconSearch{
+.iconSearch {
   padding: 0.9em 0.9em 0.9em 0.5em;
-  color:var(--four-color);
+  color: var(--four-color);
   /*z-index: -9999;*/
 }
 .bbqPlacesList {
   width: 100%;
+  padding: 0;
+}
+
+ol {
+  padding: 0;
+  margin-left: 8px;
 }
 .bbqPlacesListItem {
+  width: 88%;
   list-style: none;
   cursor: pointer;
-  line-height: 1.5rem;
+  line-height: 0.5rem;
   display: block;
+  padding: 0.1px 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin-top: 9px;
+  background-color: var(--main-color);
 }
 
 .bbqPlacesListItem:hover {
-  color: #414141;
+  color: white;
+  box-shadow: 0 2px 8px 0 var(--four-color);
 }
 
 .fourSquareBrand {
-  font-size:1em;
+  font-size: 1em;
   font-weight: 700;
   text-align: center;
-  padding: 10em 2.5em 2.5em 2.5em;
+  padding: 2em 2.5em 2.5em 2.5em;
   position: relative;
-
-
+  color: var(--main-color);
 }
 
 /*Makers and InfoWindow Styling*/
-.restaurantNameInfoWindow{
+.restaurantNameInfoWindow {
   font-weight: 700;
   text-align: center;
-  color:var(--four-color);
+  color: var(--four-color);
   background-color: var(--main-color);
   padding: 0.5rem;
-
 }
 .markersInfowindow {
   font-size: 0.9em;
   font-weight: 400;
-  color:var(--main-color);
+  color: var(--main-color);
 }
-
 
 /* @media screen and (max-width: 768px) {
 
@@ -139,3 +130,62 @@ body {
          width: 100%;
      }
    }*/
+
+/*Hamburguer Menu*/
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+/* General sidebar styles */
+.bm-menu {
+  background-color: var(--four-color);
+  opacity: 0.9;
+}
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+/* Change color on hover */
+.bm-item:hover {
+  color: var(--four-color);
+}
+
+/* The rest copied directly from react-burger-menu docs */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 20px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: var(--four-color);
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+/* Wrapper for item list */
+.bm-item-list {
+  color: var(--four-color);
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

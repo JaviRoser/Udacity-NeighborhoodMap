@@ -8,12 +8,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { slide as Menu } from 'react-burger-menu'
 
-// <i class="fas fa-utensils"></i>
-// <i class="fab fa-foursquare"></i>
 
-library.add(faUtensils,faSearch);
-
+library.add(faUtensils, faSearch);
 
 class App extends Component {
 	state = {
@@ -96,10 +94,12 @@ class App extends Component {
 					<FontAwesomeIcon className="iconHeader" icon="utensils" />
 					Newark BBQ Places
 				</div>
+				<Menu>
 				<SideBar
 					{...this.state}
 					onClickingAListItem={this.onClickingAListItem}
 				/>
+				</Menu>
 				<main className="mapContainer">
 					<Map
 						{...this.state}
