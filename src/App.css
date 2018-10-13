@@ -8,11 +8,11 @@
 
 .App {
   height: 100vh;
-  font-family: ;
-  /*flex-flow: row nowrap;*/
+  font-family:  ;
 }
 
 .App-header {
+
   overflow: hidden;
   display: flex;
   background-color: var(--main-color);
@@ -29,10 +29,7 @@
   z-index: 99999;
 }
 
-#map {
-  height: 100vh;
-  width: 100%;
-}
+
 
 .iconHeader {
   padding: 0.4em;
@@ -52,14 +49,25 @@ body {
 }
 
 /**********************SideBar ************************/
-
+.sideBar{
+  position: absolute;
+}
 #inputSearch {
   width: 100%;
   border: 0;
   max-width: 350px;
-  padding: 12px;
-  border: 1px solid #eee;
+  padding: 10px;
+  border: 0.5px solid var(--four-color);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+input:hover {
+  background-color: var(--main-color);
+  color: var(--four-color);
+  transition: 0.3s;
+}
+input:hover::placeholder {
+  color: var(--four-color);
 }
 
 .inputAndSearchIcon {
@@ -76,6 +84,7 @@ body {
   padding: 0;
 }
 
+/*Style BBQ list*/
 ol {
   padding: 0;
   margin-left: 8px;
@@ -98,6 +107,12 @@ ol {
   box-shadow: 0 2px 8px 0 var(--four-color);
 }
 
+.BBQPlacesListTitle{
+  color:var(--main-color);
+  font-weight: 900;
+  text-align: center; 
+}
+
 .fourSquareBrand {
   font-size: 1em;
   font-weight: 700;
@@ -105,6 +120,10 @@ ol {
   padding: 2em 2.5em 2.5em 2.5em;
   position: relative;
   color: var(--main-color);
+}
+
+.fourSquare {
+  font-weight: 900;
 }
 
 /*Makers and InfoWindow Styling*/
@@ -125,12 +144,12 @@ ol {
 
 #page-wrap {
   text-align: center;
-
   /* Prevent sidebar from showing a scrollbar on page */
   overflow: auto;
 }
 /* General sidebar styles */
 .bm-menu {
+  
   background-color: var(--four-color);
   opacity: 0.9;
 }
@@ -178,6 +197,7 @@ ol {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+
 }
 
 /********Mobile Layout*/

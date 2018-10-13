@@ -3,14 +3,13 @@ import "./App.css";
 import SquareAPI from "./API/API.js";
 import Map from "./components/Map.js";
 import SideBar from "./components/SideBar.js";
-/*Font Awesome: Allow to use fontAwesome Icons*/
+/*Allow to use fontAwesome Icons*/
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { slide as Menu } from "react-burger-menu";
 
-library.add(faUtensils, faSearch);
+library.add(faUtensils);
 
 class App extends Component {
 	state = {
@@ -82,7 +81,6 @@ class App extends Component {
 					id: bbqPlace.id
 				};
 			});
-			console.log(placesFound.response);
 			this.setState({ venues, markers });
 		});
 	}

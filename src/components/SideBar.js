@@ -5,7 +5,8 @@ import "../App.css";
 export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
-		listBBQPlaces: []
+		listBBQPlaces: [],
+		PlaceNoFoundErr: false
 	};
 
 	/*Update list when user types in a search*/
@@ -15,12 +16,15 @@ export default class SideBar extends Component {
 			const venues = this.props.venues.filter(venue =>
 				venue.name
 					.toLowerCase()
-					.includes(this.state.inputQuery.toLowerCase())
+					.includes(this.state.inputQuery.trim().toLowerCase())
 			);
 			return venues;
 		}
-		return this.props.venues;
+	
+		return this.props.venues
+
 	};
+
 	handleInputQuery = inputQuery => {
 		this.setState({
 			inputQuery: inputQuery.target.value
@@ -46,22 +50,31 @@ export default class SideBar extends Component {
 		return (
 			<div className="SideBar">
 				<input
+
 					type={"search"}
 					id={"inputSearch"}
 					value={this.state.inputQuery}
 					aria-label="Filter/Search"
-					placeholder="Search favorite BBQ Joint"
+					placeholder="Filter BBQ Joints"
 					onChange={inputQuery => this.handleInputQuery(inputQuery)}
 					role="search"
 				/>
-
+		
+				<h3 className="BBQPlacesListTitle">List of BBQ Places</h3>
 				<PlaceList
 					{...this.props}
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
 				<footer className="fourSquareBrand">
-					<a   rel="noopener" target="_blank" href="https://developer.foursquare.com/">Powered By FourSquare</a>
+					<a
+						rel="noopener"
+						target="_blank"
+						href="https://developer.foursquare.com/"
+					>
+						Powered By{" "}
+						<span className="fourSquare">FourSquare</span>
+					</a>
 				</footer>
 			</div>
 		);
