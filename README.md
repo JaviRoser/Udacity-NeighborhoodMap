@@ -14,12 +14,12 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 ### Installing
 
 3. Download the zip file or clone the repo onto your computer:
-	-  **Download a zip File:** https://github.com/JaviRoser/MyReads/archive/master.zip
-	-  **Clone a repo:**  git clone https://github.com/JaviRoser/MyReads.git
+	-  **Download a zip File:** https://github.com/JaviRoser/Udacity-NeighborhoodMap/archive/master.zip
+	-  **Clone a repo:**  git clone https://github.com/JaviRoser/Udacity-NeighborhoodMap.git
 
 4. Once it is cloned or downloaded, install all **dependencies** with `npm install` or a package manager of your choice.
-5. Open the root folder in a terminal and run this command:**npm start**
-6. To load the map, open your code editor and edit your Google Maps API keys in **Map.js** file located in the components folder.
+5. Open the root folder in a terminal and run this command: **`npm start`**
+6. To load the map, open your code editor and edit the Google Maps API keys in **Map.js** file located in the components folder.
 7. To fetch data from Foursuare API, edit the code with your **Client_ID & Client_Secret keys** in the **API.js** file located in the API folder.
 6. The app will start in your default browser at **localhost:3000** in development mode.
 
@@ -30,13 +30,13 @@ A service worker is created by default when installing the react package, but it
 
 Since the project is built with Create React App, we will run:
 
-`npm run build`
+**`npm run build`**
 
 this is only necessary before deploying to production.
 
 Then,
 
-`serve -s build`
+**`serve -s build`**
 
 ### Dependencies
 - creat-react-app
@@ -52,14 +52,16 @@ Then,
 
 ## How to use it
 Each location has a marker, and when it is clicked, a info window will pop up and show data for each BBQ Restaurant. To filter 
-the data, use the search input and search by name. When clearing the search, the original markers and list of restaurants appear.
+the data, use the search input and search by name. When clearing the search, the default markers and list of restaurants appear appear.
 
 ## Website Layout
 ![neighborhood map](https://user-images.githubusercontent.com/25829140/46919416-0382dd80-cfad-11e8-9550-b31fa0927f12.JPG)
 
 ## Resources
 
-https://reactjs.org/
+- React:https://reactjs.org/
+- React-Burger-Menu:https://www.npmjs.com/package/react-burger-menu
+- Font Awewesome: https://fontawesome.com/how-to-use/on-the-web/using-with/react
 
 
 ## Acknowledgments
