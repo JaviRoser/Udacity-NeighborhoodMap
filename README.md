@@ -1,5 +1,7 @@
 # Udacity Project #7: Neighborhood Map
 
+See live version: **https://javiroser.github.io/Udacity-NeighborhoodMap/**
+
 ## Project Overview
 
 A simple React app showing BBQ restaurants around my neighborhood in Newark N.J. It uses FourSquare API and Google Maps API.
