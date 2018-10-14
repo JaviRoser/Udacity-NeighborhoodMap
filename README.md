@@ -24,14 +24,13 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 ### Service Workers
 A service worker is created by default when installing the react package, but it will only cache the site when it is in production mode.
 
-
 ### Load the App in Production Mode
 
 Since the project is built with Create React App, we will run:
 
 `npm run build`
 
-this is only necessary before deploying to production
+this is only necessary before deploying to production.
 
 Then,
 
@@ -48,7 +47,11 @@ Then,
 - FourSquare API
 - Google Fonts
 - Font Awesome
-   
+
+## How to use it
+Each location has a marker, and when it is clicked, a info window will pop up and show data for each BBQ Restaurant. To filter 
+the data, use the search input and search by name. When clearing the search, the original markers and list of restaurants appear.
+
 ## Website Layout
 ![neighborhood map](https://user-images.githubusercontent.com/25829140/46919416-0382dd80-cfad-11e8-9550-b31fa0927f12.JPG)
 
@@ -60,7 +63,7 @@ https://reactjs.org/
 ## Acknowledgments
 
 - Udacity
-- Credit to:[Forrest Walker Walkthrough](https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP)
+- **Credit to:** [Forrest Walker Walkthrough](https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP)
 
 ## MIT License
 
