@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A simple React app showing BBQ restaurants around my neighborhood in Newark N.J. It uses FourSquare API and Google Maps API
+A simple React app showing BBQ restaurants around my neighborhood in Newark N.J. It uses FourSquare API and Google Maps API.
 
 ### Prerequisites
 
@@ -19,10 +19,10 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 5. Open the root folder in a terminal and run this command:**npm start**
 6. To load the map, open your code editor and edit your Google Maps API keys in **Map.js** file located in the components folder.
 7. To fetch data from Foursuare API, edit the code with your **Client_ID & Client_Secret keys** in the **API.js** file located in the API folder.
-6. The app will start in your default browser at **localhost:3000** in developement mode
+6. The app will start in your default browser at **localhost:3000** in development mode.
 
 ### Service Workers
-A service worker is created by default when installing the react package,but it will only cache the site when it is in production mode.
+A service worker is created by default when installing the react package, but it will only cache the site when it is in production mode.
 
 
 ### Load the App in Production Mode
@@ -52,8 +52,6 @@ Then,
 ## Website Layout
 ![neighborhood map](https://user-images.githubusercontent.com/25829140/46919416-0382dd80-cfad-11e8-9550-b31fa0927f12.JPG)
 
-
-
 ## Resources
 
 https://reactjs.org/
@@ -62,5 +60,10 @@ https://reactjs.org/
 ## Acknowledgments
 
 - Udacity
+- Credit to:[Forrest Walker Walkthrough](https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP)
+
+## MIT License
+
+This project is licensed under the terms of the MIT license
 
 
