@@ -3,18 +3,17 @@ import PlaceListItem from "./PlaceListItem";
 
 export default class PlaceList extends Component {
 	render() {
+		const { venues, onClickingAListItem } = this.props;
 		return (
 			<ol className="bbqPlaceList">
-				{this.props.venues &&
-					this.props.venues.map((bbqPlace, index) => (
+				{venues &&
+					venues.map((bbqPlace, index) => (
 						<PlaceListItem
 							key={index}
 							{...bbqPlace}
-							onClickingAListItem={this.props.onClickingAListItem}
+							onClickingAListItem={onClickingAListItem}
 						/>
-
 					))}
-					
 			</ol>
 		);
 	}

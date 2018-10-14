@@ -5,8 +5,8 @@ import "../App.css";
 export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
-		listBBQPlaces: [],
-		PlaceNoFoundErr: false
+		listBBQPlaces: []
+		// PlaceNoFoundErr: false
 	};
 
 	/*Update list when user types in a search*/
@@ -21,6 +21,7 @@ export default class SideBar extends Component {
 			return venues;
 		}
 
+		/*Return a default list of restaurants*/
 		return this.props.venues;
 	};
 
@@ -64,13 +65,14 @@ export default class SideBar extends Component {
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
+
 				<footer className="fourSquareBrand">
 					<a
 						rel="noopener noreferrer"
 						target="_blank"
 						href="https://developer.foursquare.com/"
 					>
-						Powered By{" "}
+						Powered By
 						<span className="fourSquare">FourSquare</span>
 					</a>
 				</footer>

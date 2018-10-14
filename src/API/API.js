@@ -57,7 +57,7 @@ class APIhelper {
 		)
 			.then(APIhelper.checkResponseStatus)
 			.then(res => res.json())
-			.catch(errorFound => {
+			.catch(error => {
 				alert("Error while fetching data from foursquare");
 			});
 	}
