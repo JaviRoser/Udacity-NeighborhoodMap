@@ -17,7 +17,7 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 	-  **Download a zip File:** https://github.com/JaviRoser/Udacity-NeighborhoodMap/archive/master.zip
 	-  **Clone a repo:**  git clone https://github.com/JaviRoser/Udacity-NeighborhoodMap.git
 
-4. Once it is cloned or downloaded, install all **dependencies** with `npm install` or a package manager of your choice.
+4. Once it is cloned or downloaded, install all **dependencies** with **`npm install`** or a package manager of your choice.
 5. Open the root folder in a terminal and run this command: **`npm start`**
 6. To load the map, open your code editor and edit the Google Maps API keys in **Map.js** file located in the components folder.
 7. To fetch data from Foursuare API, edit the code with your **Client_ID & Client_Secret keys** in the **API.js** file located in the API folder.
@@ -50,7 +50,7 @@ Then,
 - Google Fonts
 - Font Awesome
 
-## How to use it
+## How to use the App
 Each location has a marker, and when it is clicked, a info window will pop up and show data for each BBQ Restaurant. To filter 
 the data, use the search input and search by name. When clearing the search, the default markers and list of restaurants appear appear.
 
