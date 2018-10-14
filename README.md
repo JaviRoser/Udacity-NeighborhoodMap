@@ -17,7 +17,7 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 	-  **Download a zip File:** https://github.com/JaviRoser/MyReads/archive/master.zip
 	-  **Clone a repo:**  git clone https://github.com/JaviRoser/MyReads.git
 
-4. Once it is cloned or downloaded, install all**dependencies** with `npm install` or a package manager of your choice.
+4. Once it is cloned or downloaded, install all **dependencies** with `npm install` or a package manager of your choice.
 5. Open the root folder in a terminal and run this command:**npm start**
 6. To load the map, open your code editor and edit your Google Maps API keys in **Map.js** file located in the components folder.
 7. To fetch data from Foursuare API, edit the code with your **Client_ID & Client_Secret keys** in the **API.js** file located in the API folder.
