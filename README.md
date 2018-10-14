@@ -17,9 +17,21 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 	-  **Download a zip File:** https://github.com/JaviRoser/MyReads/archive/master.zip
 	-  **Clone a repo:**  git clone https://github.com/JaviRoser/MyReads.git
 
-4. Install dependencies with `npm install`
-5. Once it is cloned or downloaded, open the root folder in a terminal and run this command:**npm start**
+4. Once it is cloned or downloaded, install dependencies with `npm install` or a package manager of your choice.
+5. Open the root folder in a terminal and run this command:**npm start**
 6. The app will start in your default browser at **localhost:3000**
+
+### Dependencies
+creat-react-app
+react
+react-burger-menu
+react-dom
+react-google-maps
+react-scripts
+Google Maps API
+FourSquare API
+Google Fonts
+Font Awesome
    
 ## Mobile Website Layout
 
@@ -28,6 +40,7 @@ A simple React app showing BBQ restaurants around my neighborhood in Newark N.J.
 ## Resources
 
 https://reactjs.org/
+
 
 ## Acknowledgments
 
