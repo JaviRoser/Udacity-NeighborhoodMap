@@ -40,11 +40,11 @@ const MyMapComponent = withScriptjs(
 									venueData.bestPhoto && (
 										<InfoWindow>
 											<React.Fragment>
-												<p className="restaurantNameInfoWindow;">
+												<p className="restaurantNameInfoWindow">
 													{venueData.name}
 												</p>
 
-												<img
+												<img className="infoWindowImage"
 													src={`${
 														venueData.bestPhoto
 															.prefix
@@ -52,7 +52,7 @@ const MyMapComponent = withScriptjs(
 														venueData.bestPhoto
 															.suffix
 													}`}
-													alt="{`${venueData.name}`}"
+													alt={`${venueData.name}`}
 												/>
 												<div className="markersInfowindow">
 													<p>
@@ -90,9 +90,9 @@ export default class Map extends Component {
 			<MyMapComponent
 				role="application"
 				{...this.props}
-				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
+				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao" async defer
 				loadingElement={<div style={{ height: `100%` }} />}
-				containerElement={<div style={{ height: `200px` }} />}
+				containerElement={<div style={{ height: `100px` }} />}
 				mapElement={<div style={{ height: `100vh` }} />}
 			/>
 		);

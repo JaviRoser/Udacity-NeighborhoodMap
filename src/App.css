@@ -8,11 +8,11 @@
 
 .App {
   height: 100vh;
-  font-family:  ;
+  font-family: "Lato", sans-serif, "Lucida Grande", Tahoma, Sans-Serif;
 }
 
+/*******************App Title**************************/
 .App-header {
-
   overflow: hidden;
   display: flex;
   background-color: var(--main-color);
@@ -26,10 +26,10 @@
   padding: 0.5rem;
   margin: 0;
   top: 0;
-  z-index: 99999;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
-
-
 
 .iconHeader {
   padding: 0.4em;
@@ -40,21 +40,24 @@ body {
   padding: 0;
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
 }
 
+/************************Map****************************/
 .mapContainer {
-  background: blue none repeat scroll 0 0;
-  height: 100vh;
+  /*  background: blue none repeat scroll 0 0;*/
+  height: 400px;
   width: 100%;
 }
 
 /**********************SideBar ************************/
-.sideBar{
-  position: absolute;
-}
+
 #inputSearch {
-  width: 100%;
-  border: 0;
+  margin-top: 50px;
+  margin-left: 9px;
+  width: 95%;
+  /*border: 0;*/
   max-width: 350px;
   padding: 10px;
   border: 0.5px solid var(--four-color);
@@ -90,6 +93,7 @@ ol {
   margin-left: 8px;
 }
 .bbqPlacesListItem {
+  border-radius: 4px;
   width: 88%;
   list-style: none;
   cursor: pointer;
@@ -107,10 +111,10 @@ ol {
   box-shadow: 0 2px 8px 0 var(--four-color);
 }
 
-.BBQPlacesListTitle{
-  color:var(--main-color);
+.BBQPlacesListTitle {
+  color: var(--main-color);
   font-weight: 900;
-  text-align: center; 
+  text-align: center;
 }
 
 .fourSquareBrand {
@@ -128,16 +132,24 @@ ol {
 
 /*Makers and InfoWindow Styling*/
 .restaurantNameInfoWindow {
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
   text-align: center;
   color: var(--four-color);
   background-color: var(--main-color);
   padding: 0.5rem;
 }
 .markersInfowindow {
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 400;
   color: var(--main-color);
+}
+
+.infoWindowImage {
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
 }
 
 /*******************Hamburguer Menu*********************/
@@ -149,7 +161,6 @@ ol {
 }
 /* General sidebar styles */
 .bm-menu {
-  
   background-color: var(--four-color);
   opacity: 0.9;
 }
@@ -157,6 +168,8 @@ ol {
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  background-color: var(--main-color);
+  border-radius: 50%;
 }
 
 /* Color/shape of close button cross */
@@ -172,7 +185,7 @@ ol {
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: absolute;
+  position: fixed;
   width: 36px;
   height: 30px;
   left: 36px;
@@ -183,7 +196,6 @@ ol {
 .bm-burger-bars {
   background: var(--four-color);
 }
-
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;
@@ -197,7 +209,6 @@ ol {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-
 }
 
 /********Mobile Layout*/

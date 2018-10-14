@@ -20,9 +20,8 @@ export default class SideBar extends Component {
 			);
 			return venues;
 		}
-	
-		return this.props.venues
 
+		return this.props.venues;
 	};
 
 	handleInputQuery = inputQuery => {
@@ -50,7 +49,6 @@ export default class SideBar extends Component {
 		return (
 			<div className="SideBar">
 				<input
-
 					type={"search"}
 					id={"inputSearch"}
 					value={this.state.inputQuery}
@@ -59,7 +57,7 @@ export default class SideBar extends Component {
 					onChange={inputQuery => this.handleInputQuery(inputQuery)}
 					role="search"
 				/>
-		
+
 				<h3 className="BBQPlacesListTitle">List of BBQ Places</h3>
 				<PlaceList
 					{...this.props}
@@ -68,7 +66,7 @@ export default class SideBar extends Component {
 				/>
 				<footer className="fourSquareBrand">
 					<a
-						rel="noopener"
+						rel="noopener noreferrer"
 						target="_blank"
 						href="https://developer.foursquare.com/"
 					>

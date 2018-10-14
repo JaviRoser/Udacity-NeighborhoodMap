@@ -89,7 +89,7 @@ class App extends Component {
 			<div className="App">
 				<div className="App-header">
 					<FontAwesomeIcon className="iconHeader" icon="utensils" />
-					Newark BBQ Places
+					Newark BBQ Restaurants
 				</div>
 				<Menu>
 					<SideBar

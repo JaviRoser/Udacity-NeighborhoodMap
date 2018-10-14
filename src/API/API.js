@@ -39,9 +39,9 @@ class APIhelper {
 		if (res.ok) {
 			return res;
 		} else {
-			let errorFound = new errorFound(res.statusText);
-			errorFound = res;
-			throw res;
+			let error = new Error(res.statusText);
+			error = res;
+			throw error;
 		}
 	}
 	static fetchData(endPoint, method, urlPrams) {
@@ -55,7 +55,7 @@ class APIhelper {
 			)}`,
 			requestData
 		)
-			.then(APIhelper.checkStatus)
+			.then(APIhelper.checkResponseStatus)
 			.then(res => res.json())
 			.catch(errorFound => {
 				alert("Error while fetching data from foursquare");
