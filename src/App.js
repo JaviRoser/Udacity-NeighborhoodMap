@@ -69,8 +69,11 @@ class App extends Component {
 			query: "bbq",
 			radius: 1000,
 			limit: 8
-		}).then(
-			placesFoundResult => {
+		})
+			.then(placesFoundResult => {
+				if(!placesFoundResult.ok){
+					throw Error("Error Getting data from foursquare")
+				}
 				const { venues } = placesFoundResult.response;
 				const markers = venues.map(bbqPlace => {
 					return {
@@ -82,20 +85,25 @@ class App extends Component {
 					};
 				});
 				this.setState({ venues, markers });
-			},
-			error => {
+			})
+			.catch(error => {
 				this.setState({
 					errorLoadingFourSquareData: true,
 					error
 				});
-			}
-		);
+			});
 	}
 	render() {
 		/*Handle Loading Error when fetching from FourSquare*/
 		const { error } = this.state;
 		if (error) {
-			return <div>Error: {error.message}</div>;
+			return (
+				<div>
+					Something Went Wrong!
+					<br />
+					An error occurs while fetching Data from FourSquare
+				</div>
+			);
 		}
 
 		return (

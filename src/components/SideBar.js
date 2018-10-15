@@ -47,9 +47,10 @@ export default class SideBar extends Component {
 	};
 
 	render() {
-		return (
+		return (						
 			<div className="SideBar">
 				<input
+					tabIndex="0"
 					type={"search"}
 					id={"inputSearch"}
 					value={this.state.inputQuery}

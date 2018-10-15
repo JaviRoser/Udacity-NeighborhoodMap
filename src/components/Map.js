@@ -1,5 +1,6 @@
 /*global google*/
 import React, { Component } from "react";
+import googleMapFailureBackgroundImage from "../img/googleMapFailureBackgroundImage.jpeg";
 import {
 	withScriptjs,
 	withGoogleMap,
@@ -7,6 +8,11 @@ import {
 	Marker,
 	InfoWindow
 } from "react-google-maps";
+/*To Import the "X" error Found*/
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+library.add(faTimes);
 
 const MyMapComponent = withScriptjs(
 	withGoogleMap(props => (
@@ -30,6 +36,7 @@ const MyMapComponent = withScriptjs(
 										: google.maps.Animation.DROP
 								}
 								key={index}
+								tabIndex="0"
 								position={{
 									lat: parseFloat(marker.lat),
 									lng: parseFloat(marker.lng)
@@ -44,7 +51,8 @@ const MyMapComponent = withScriptjs(
 													{venueData.name}
 												</p>
 
-												<img className="infoWindowImage"
+												<img
+													className="infoWindowImage"
 													src={`${
 														venueData.bestPhoto
 															.prefix
@@ -85,16 +93,69 @@ const MyMapComponent = withScriptjs(
 );
 
 export default class Map extends Component {
+
+	/*Credit to : John Kariuki (https://scotch.io/tutorials/error-handling-in-react-16-using-error-boundaries)*/
+	state = {
+		hasError: false
+	};
+	/*Error Boundary (Try/Catch)*/
+	componentDidCatch() {
+		this.setState({
+			hasError: true
+		});
+	}
+
+	componentDidMount() {
+		window.gm_authFailure = () => {
+			this.setState({
+				hasError: true
+			});
+		};
+	}
+
 	render() {
+		const { hasError } = this.state;
 		return (
-			<MyMapComponent
-				role="application"
-				{...this.props}
-				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao" async defer
-				loadingElement={<div style={{ height: `100%` }} />}
-				containerElement={<div style={{ height: `100px` }} />}
-				mapElement={<div style={{ height: `100vh` }} />}
-			/>
+			<main role="main" className="MapMain">
+				{!hasError && (
+					<MyMapComponent
+						role="application"
+						{...this.props}
+						googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
+						async
+						defer
+						loadingElement={<div style={{ height: `100%` }} />}
+						containerElement={<div style={{ height: `100px` }} />}
+						mapElement={<div style={{ height: `100vh` }} />}
+					/>
+				)}
+				{/*Error Message when Map Fail loading*/}
+				{hasError && (
+					<div className="mapFailLoading">
+						<img
+							className="mapFailLoadingImage"
+							src={googleMapFailureBackgroundImage}
+							alt="Barbeque Food"
+						/>
+						<p className="mapFailLoadingMessage">
+							<FontAwesomeIcon
+								className="iconFailMessage"
+								icon="times"
+							/>
+							<br />
+							<span className="oopsMessage">Oops!</span>
+							Failed to load Google Map API. While the issue is
+							being fixed, you can look at this delicious bbq
+							dish.
+							<br />
+							<span className="howToSolveMsg">
+								The problem can be the Google API key.
+							</span>
+							Check the README.md file to solve the issue.
+						</p>
+					</div>
+				)}
+			</main>
 		);
 	}
 }
