@@ -23,18 +23,20 @@ const MyMapComponent = withScriptjs(
 			{props.markers &&
 				props.markers
 					.filter(marker => marker.isVisible)
+
 					.map((marker, index, arr) => {
 						const venueData = props.venues.find(
 							bbqPlace => bbqPlace.id === marker.id
 						);
-
+					console.log(arr);
 						return (
 							<Marker
 								animation={
-									arr.length === 1
+									marker.isOpen ||arr.length === 1
 										? google.maps.Animation.BOUNCE
 										: google.maps.Animation.DROP
 								}
+								title={marker.fullName}
 								key={index}
 								tabIndex="0"
 								position={{
@@ -87,13 +89,15 @@ const MyMapComponent = withScriptjs(
 									)}
 							</Marker>
 						);
+
 					})}
+		
+						
 		</GoogleMap>
 	))
 );
 
 export default class Map extends Component {
-
 	/*Credit to : John Kariuki (https://scotch.io/tutorials/error-handling-in-react-16-using-error-boundaries)*/
 	state = {
 		hasError: false
@@ -115,8 +119,15 @@ export default class Map extends Component {
 
 	render() {
 		const { hasError } = this.state;
+
+		// const { errorLoadingFourSquareData } = this.props;
 		return (
 			<main role="main" className="MapMain">
+				{/*this.props.errorLoadingFourSquareData && (
+					<div>
+						<p>Error Fetching Data From FourSquare</p>
+					</div>
+				)*/}
 				{!hasError && (
 					<MyMapComponent
 						role="application"

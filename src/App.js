@@ -39,18 +39,31 @@ class App extends Component {
 			bbqPlace => bbqPlace.id === marker.id
 		);
 		/*Fetch Data from Square API*/
-		SquareAPI.getBBQDetails(marker.id).then(bbqDetailsResponse => {
-			const newBBQPlaceAndMarkerMatch = Object.assign(
-				venue,
-				bbqDetailsResponse.response.venue
-			);
-			this.setState({
-				venues: Object.assign(
-					this.state.venues,
-					newBBQPlaceAndMarkerMatch
-				)
+		SquareAPI.getBBQDetails(marker.id)
+			.then(bbqDetailsResponse => {
+				console.log(bbqDetailsResponse)
+				const newBBQPlaceAndMarkerMatch = Object.assign(
+					venue,
+					bbqDetailsResponse.response.venue
+				);
+				if (newBBQPlaceAndMarkerMatch === null) {
+					this.setState({
+						errorLoadingFourSquareData: true
+					});
+				}
+				this.setState({
+					venues: Object.assign(
+						this.state.venues,
+						newBBQPlaceAndMarkerMatch
+					)
+				});
+			})
+			.catch(bbqDetailsResponse => {
+				this.setState({
+					venues: [],
+					markers: []
+				});
 			});
-		});
 	};
 
 	/*Call when a list item is clicked.*/
@@ -70,10 +83,15 @@ class App extends Component {
 			radius: 1000,
 			limit: 8
 		})
+			// .then(placesFoundResult=>placesFoundResult.json)
 			.then(placesFoundResult => {
-				if(!placesFoundResult.ok){
-					throw Error("Error Getting data from foursquare")
-				}
+				// 	if (!placesFoundResult.ok) {
+				// 	throw Error("Error Getting data from foursquare");
+				// }
+				this.setState({
+					venues: [],
+					markers: []
+				});
 				const { venues } = placesFoundResult.response;
 				const markers = venues.map(bbqPlace => {
 					return {
@@ -88,20 +106,19 @@ class App extends Component {
 			})
 			.catch(error => {
 				this.setState({
-					errorLoadingFourSquareData: true,
-					error
+					errorLoadingFourSquareData: true
 				});
 			});
 	}
 	render() {
 		/*Handle Loading Error when fetching from FourSquare*/
-		const { error } = this.state;
-		if (error) {
+		const { errorLoadingFourSquareData } = this.state;
+		if (errorLoadingFourSquareData) {
 			return (
 				<div>
 					Something Went Wrong!
 					<br />
-					An error occurs while fetching Data from FourSquare
+					{/*error.message*/}
 				</div>
 			);
 		}
@@ -117,7 +134,7 @@ class App extends Component {
 						{...this.state}
 						onClickingAListItem={this.onClickingAListItem}
 					/>
-					{this.props.errorLoadingFourSquareData && (
+					{errorLoadingFourSquareData && (
 						<p>Error Fetching Data from FourSquare</p>
 					)}
 				</Menu>
