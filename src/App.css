@@ -259,10 +259,10 @@ ol {
   z-index: 2;
   line-height: 2rem;
 }
-.sadFaceFailMsg{
+.sadFaceFailMsg {
   font-weight: 900;
   font-size: 3em;
-  color:#dd0a35;
+  color: #dd0a35;
 }
 /*Center the Message*/
 .mapFailLoadingMessage {
