@@ -69,7 +69,7 @@ export default class SideBar extends Component {
 				/>
 				{errorLoadingFourSquareData && (
 					<p className="errorLoadingFourSquareData">!Error Fetching the requested data from FourSquare.
-					Please Check the README to solve the problem</p>
+					Please Check the README to solve the problem.</p>
 				)}
 
 				<div className="fourSquareBrand">

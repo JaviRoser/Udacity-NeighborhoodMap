@@ -41,7 +41,7 @@ class App extends Component {
 		/*Fetch Data from Square API*/
 		SquareAPI.getBBQDetails(marker.id)
 			.then(bbqDetailsResponse => {
-				console.log(bbqDetailsResponse);
+	
 				const newBBQPlaceAndMarkerMatch = Object.assign(
 					venue,
 					bbqDetailsResponse.response.venue
@@ -141,7 +141,7 @@ class App extends Component {
 						handleMarkerClick={this.markerIsClicked}
 
 					/>
-				
+
 				</main>
 			</div>
 		);

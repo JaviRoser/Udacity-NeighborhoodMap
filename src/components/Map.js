@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import googleMapFailureBackgroundImage from "../img/googleMapFailureBackgroundImage.jpeg";
 import MapStyle from "../MapStyle";
@@ -140,7 +139,12 @@ export default class Map extends Component {
 			<main role="main" className="MapMain">
 				{errorLoadingFourSquareData && (
 					<div className="showErrorMessageOnMap">
-						<p>Error Fetching Data From FourSquare</p>
+						<p>
+							<span className="sadFaceFailMsg">:(</span><br></br>
+								Error fetching data from FourSquare.
+							<br />
+							Please check your API keys or the quote was exceeded
+						</p>
 					</div>
 				)}
 				{!hasError && (

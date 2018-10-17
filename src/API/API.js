@@ -1,4 +1,6 @@
-/*Coded by Forrest Walker
+/*
+Coded by Forrest Walker
+
 This Helper is part of a walkthorugh series on 
 https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP*/
 
@@ -10,7 +12,7 @@ class APIhelper {
 		const keys = {
 			client_id: "HNTNPCMO3SME2E4BUOHTZC1UXY0JSXADCQCWSJ15G1OXOC2J",
 			/*Right Key"3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ04"*/
-			client_secret: "3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ",
+			client_secret: "3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ04",
 			v: "20181005"
 		};
 
