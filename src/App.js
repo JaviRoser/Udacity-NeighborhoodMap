@@ -41,7 +41,6 @@ class App extends Component {
 		/*Fetch Data from Square API*/
 		SquareAPI.getBBQDetails(marker.id)
 			.then(bbqDetailsResponse => {
-	
 				const newBBQPlaceAndMarkerMatch = Object.assign(
 					venue,
 					bbqDetailsResponse.response.venue
@@ -81,7 +80,7 @@ class App extends Component {
 			ll: "40.7282155,-74.1682744",
 			query: "bbq",
 			radius: 1000,
-			limit: 2
+			limit: 5
 		})
 
 			.then(placesFoundResult => {
@@ -131,17 +130,13 @@ class App extends Component {
 						role={"complementary"}
 						{...this.state}
 						onClickingAListItem={this.onClickingAListItem}
-
 					/>
-					
 				</Menu>
 				<main className="mapContainer">
 					<Map
 						{...this.state}
 						handleMarkerClick={this.markerIsClicked}
-
 					/>
-
 				</main>
 			</div>
 		);
