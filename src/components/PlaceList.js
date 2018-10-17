@@ -13,7 +13,7 @@ export default class PlaceList extends Component {
 			// 	)
 
 			// }
-			<ol className="bbqPlaceList" aria-labelledby="BBQ Restaurants list">
+			<ol role="menu" className="bbqPlaceList" aria-labelledby="">
 				{venues &&
 					venues.map((bbqPlace, index) => (
 						<PlaceListItem

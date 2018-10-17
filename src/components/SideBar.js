@@ -60,23 +60,23 @@ export default class SideBar extends Component {
 					role="search"
 				/>
 
-				<h3 className="BBQPlacesListTitle">List of BBQ Places</h3>
+				<h2 className="BBQPlacesListTitle">List of BBQ Places</h2>
 				<PlaceList
 					{...this.props}
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
 
-				<footer className="fourSquareBrand">
+				<div className="fourSquareBrand">
 					<a
 						rel="noopener noreferrer"
 						target="_blank"
 						href="https://developer.foursquare.com/"
 					>
 						Powered By
-						<span className="fourSquare">FourSquare</span>
+						<span className="fourSquare"> FourSquare</span>
 					</a>
-				</footer>
+				</div>
 			</div>
 		);
 	}

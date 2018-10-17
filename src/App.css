@@ -19,7 +19,7 @@
   height: 10vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
   color: var(--four-color);
   text-align: center;
   font-weight: 700;
@@ -31,8 +31,13 @@
   z-index: 1000;
 }
 
+h1, .iconHeader{
+  font-size: calc(10px + 2vmin);
+}
+
 .iconHeader {
   padding: 0.4em;
+
 }
 html,
 body {
@@ -185,7 +190,7 @@ ol {
 .bm-cross-button {
   height: 24px;
   width: 24px;
-  margin-right: 12px;
+  margin-right: 10px;
   background-color: var(--main-color);
   border-radius: 50%;
 }

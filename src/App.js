@@ -41,7 +41,7 @@ class App extends Component {
 		/*Fetch Data from Square API*/
 		SquareAPI.getBBQDetails(marker.id)
 			.then(bbqDetailsResponse => {
-				console.log(bbqDetailsResponse)
+				console.log(bbqDetailsResponse);
 				const newBBQPlaceAndMarkerMatch = Object.assign(
 					venue,
 					bbqDetailsResponse.response.venue
@@ -81,7 +81,7 @@ class App extends Component {
 			ll: "40.7282155,-74.1682744",
 			query: "bbq",
 			radius: 1000,
-			limit: 8
+			limit: 5
 		})
 			// .then(placesFoundResult=>placesFoundResult.json)
 			.then(placesFoundResult => {
@@ -126,11 +126,16 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div className="App-header">
-					<FontAwesomeIcon className="iconHeader" icon="utensils" />
-					Newark BBQ Restaurants
+					<FontAwesomeIcon
+						role="presentation"
+						className="iconHeader"
+						icon="utensils"
+					/>
+					<h1>Newark BBQ Restaurants</h1>
 				</div>
 				<Menu>
 					<SideBar
+						role={"complementary"}
 						{...this.state}
 						onClickingAListItem={this.onClickingAListItem}
 					/>
