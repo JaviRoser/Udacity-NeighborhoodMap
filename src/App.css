@@ -31,13 +31,13 @@
   z-index: 1000;
 }
 
-h1, .iconHeader{
+h1,
+.iconHeader {
   font-size: calc(10px + 2vmin);
 }
 
 .iconHeader {
   padding: 0.4em;
-
 }
 html,
 body {
@@ -234,6 +234,20 @@ ol {
 
 /*Error Handling Map and FourSquare Api*/
 
+/*FourSquare Error Fetching Data*/
+.errorLoadingFourSquareData {
+  color:var(--main-color);
+  font-weight: 800;
+  background: var(--ternary-color);
+  padding: 2rem;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.showErrorMessageOnMap{
+  
+}
+
 /*Center the Message*/
 .mapFailLoadingMessage {
   opacity: 0.9;
@@ -253,25 +267,24 @@ ol {
 .oopsMessage {
   font-weight: 800;
   font-size: 2rem;
-  color:#dd0a35;
+  color: #dd0a35;
 }
 
 .iconFailMessage {
   background-color: #dd0a35;
-  color:var(--main-color);
+  color: var(--main-color);
   border-radius: 50%;
   font-size: 1.5em;
   padding: 1rem;
   margin-bottom: 5px;
   margin-left: 78px;
-  font-weight: 900; 
-
+  font-weight: 900;
 }
 
-.howToSolveMsg{
+.howToSolveMsg {
   /*font-style: italic;*/
   font-weight: 700;
-  color:#dd0a35;
+  color: #dd0a35;
 }
 
 /********Mobile Layout*/

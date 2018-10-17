@@ -6,7 +6,6 @@ export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
 		listBBQPlaces: []
-		// PlaceNoFoundErr: false
 	};
 
 	/*Update list when user types in a search*/
@@ -47,14 +46,16 @@ export default class SideBar extends Component {
 	};
 
 	render() {
-		return (						
+		const { errorLoadingFourSquareData } = this.props;
+		
+		return (
 			<div className="SideBar">
 				<input
 					tabIndex="0"
 					type={"search"}
 					id={"inputSearch"}
 					value={this.state.inputQuery}
-					aria-label="Filter/Search"
+					aria-label="search"
 					placeholder="Filter BBQ Joints"
 					onChange={inputQuery => this.handleInputQuery(inputQuery)}
 					role="search"
@@ -66,6 +67,10 @@ export default class SideBar extends Component {
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
+				{errorLoadingFourSquareData && (
+					<p className="errorLoadingFourSquareData">!Error Fetching the requested data from FourSquare.
+					Please Check the README to solve the problem</p>
+				)}
 
 				<div className="fourSquareBrand">
 					<a

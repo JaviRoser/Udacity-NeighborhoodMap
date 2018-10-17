@@ -10,7 +10,7 @@ class APIhelper {
 		const keys = {
 			client_id: "HNTNPCMO3SME2E4BUOHTZC1UXY0JSXADCQCWSJ15G1OXOC2J",
 			/*Right Key"3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ04"*/
-			client_secret: "3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ04",
+			client_secret: "3OTBDOWLKL2INLVWYI3WHIDIB0HLLXMO4OB5TWZ1MLKXGZ",
 			v: "20181005"
 		};
 
@@ -38,14 +38,12 @@ class APIhelper {
 
 	static checkResponseStatus(res) {
 		if (res.ok) {
-
 			return res;
 		} else {
 			let error = new Error(res.statusText);
 
 			error = res;
 			throw error;
-
 		}
 	}
 
@@ -64,7 +62,6 @@ class APIhelper {
 			.then(res => res.json())
 			.catch(error => {
 				alert("Error while fetching data from foursquare");
-
 			});
 	}
 }

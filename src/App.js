@@ -81,13 +81,10 @@ class App extends Component {
 			ll: "40.7282155,-74.1682744",
 			query: "bbq",
 			radius: 1000,
-			limit: 5
+			limit: 2
 		})
-			// .then(placesFoundResult=>placesFoundResult.json)
+
 			.then(placesFoundResult => {
-				// 	if (!placesFoundResult.ok) {
-				// 	throw Error("Error Getting data from foursquare");
-				// }
 				this.setState({
 					venues: [],
 					markers: []
@@ -105,23 +102,19 @@ class App extends Component {
 				this.setState({ venues, markers });
 			})
 			.catch(error => {
-				this.setState({
-					errorLoadingFourSquareData: true
-				});
+				if (error) {
+					this.setState({
+						errorLoadingFourSquareData: true
+					});
+				}
 			});
 	}
 	render() {
 		/*Handle Loading Error when fetching from FourSquare*/
-		const { errorLoadingFourSquareData } = this.state;
-		if (errorLoadingFourSquareData) {
-			return (
-				<div>
-					Something Went Wrong!
-					<br />
-					{/*error.message*/}
-				</div>
-			);
-		}
+		// const { errorLoadingFourSquareData } = this.state;
+		// // if (errorLoadingFourSquareData) {
+		// 	return <div>Something Went Wrong!</div>;
+		// }
 
 		return (
 			<div className="App">
@@ -138,16 +131,17 @@ class App extends Component {
 						role={"complementary"}
 						{...this.state}
 						onClickingAListItem={this.onClickingAListItem}
+
 					/>
-					{errorLoadingFourSquareData && (
-						<p>Error Fetching Data from FourSquare</p>
-					)}
+					
 				</Menu>
 				<main className="mapContainer">
 					<Map
 						{...this.state}
 						handleMarkerClick={this.markerIsClicked}
+
 					/>
+				
 				</main>
 			</div>
 		);

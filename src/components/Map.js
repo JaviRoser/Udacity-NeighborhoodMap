@@ -1,7 +1,7 @@
-/*global google*/
+
 import React, { Component } from "react";
 import googleMapFailureBackgroundImage from "../img/googleMapFailureBackgroundImage.jpeg";
-import MapStyle from "../MapStyle"
+import MapStyle from "../MapStyle";
 /*Import Color Markers*/
 import blueMarkerIcon from "../img/blueMarkerIcon.png";
 import redMarkerIcon from "../img/redMarkerIcon.png";
@@ -24,7 +24,7 @@ const MyMapComponent = withScriptjs(
 		<GoogleMap
 			defaultZoom={14}
 			defaultCenter={{ lat: 40.731115414225094, lng: -74.16149205544018 }}
-			defaultOptions={{styles:MapStyle}}
+			defaultOptions={{ styles: MapStyle }}
 		>
 			{props.markers &&
 				props.markers
@@ -37,11 +37,6 @@ const MyMapComponent = withScriptjs(
 
 						return (
 							<Marker
-								// animation={
-								// 	marker.isOpen || arr.length === 1
-								// 		? google.maps.Animation.BOUNCE
-								// 		: google.maps.Animation.DROP
-								// }
 								icon={
 									marker.isOpen || arr.length === 1
 										? {
@@ -140,18 +135,17 @@ export default class Map extends Component {
 	render() {
 		const { hasError } = this.state;
 
-		// const { errorLoadingFourSquareData } = this.props;
+		const { errorLoadingFourSquareData } = this.props;
 		return (
 			<main role="main" className="MapMain">
-				{/*this.props.errorLoadingFourSquareData && (
-					<div>
+				{errorLoadingFourSquareData && (
+					<div className="showErrorMessageOnMap">
 						<p>Error Fetching Data From FourSquare</p>
 					</div>
-				)*/}
+				)}
 				{!hasError && (
 					<MyMapComponent
 						role="application"
-						
 						{...this.props}
 						googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
 						async
