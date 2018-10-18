@@ -5,7 +5,7 @@ export default class PlaceList extends Component {
 	render() {
 		const { venues, onClickingAListItem } = this.props;
 		return (
-			<ol role="menu" className="bbqPlaceList" aria-labelledby="">
+			<ol id="listOfRestaurants"className="bbqPlaceList">
 				{venues &&
 					venues.map((bbqPlace, index) => (
 						<PlaceListItem

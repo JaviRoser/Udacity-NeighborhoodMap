@@ -132,6 +132,7 @@ class App extends Component {
 						onClickingAListItem={this.onClickingAListItem}
 					/>
 				</Menu>
+
 				<main className="mapContainer">
 					<Map
 						{...this.state}

@@ -41,8 +41,8 @@ const MyMapComponent = withScriptjs(
 										? {
 												url: blueMarkerIcon,
 												scaledSize: new window.google.maps.Size(
-													50,
-													55
+													40,
+													45
 												)
 										  }
 										: {
@@ -112,7 +112,8 @@ const MyMapComponent = withScriptjs(
 );
 
 export default class Map extends Component {
-	/*Credit to : John Kariuki (https://scotch.io/tutorials/error-handling-in-react-16-using-error-boundaries)*/
+	/*Credit to : John Kariuki 
+	(https://scotch.io/tutorials/error-handling-in-react-16-using-error-boundaries)*/
 	state = {
 		hasError: false
 	};
@@ -140,10 +141,13 @@ export default class Map extends Component {
 				{errorLoadingFourSquareData && (
 					<div className="showErrorMessageOnMap">
 						<p>
-							<span className="sadFaceFailMsg">:(</span><br></br>
-								Error fetching data from FourSquare.
+							<span className="sadFaceFailMsg">:(</span>
 							<br />
-							Please check your API keys or the quote was exceeded
+							Error fetching data from FourSquare.
+							<br />
+							Please check if you have the right
+							API keys or propably the quote was exceeded.
+							Check the README FOR MORE INFORMATION.
 						</p>
 					</div>
 				)}

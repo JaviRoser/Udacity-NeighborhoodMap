@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PlaceList from "./PlaceList.js";
 import "../App.css";
 
+
 export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
@@ -46,9 +47,11 @@ export default class SideBar extends Component {
 	};
 
 	render() {
+
 		const { errorLoadingFourSquareData } = this.props;
 		
 		return (
+			
 			<div className="SideBar">
 				<input
 					tabIndex="0"
