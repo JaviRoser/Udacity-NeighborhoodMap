@@ -61,12 +61,15 @@ export default class SideBar extends Component {
 					role="search"
 				/>
 
-				<h2 id="listOfBBQRestaurants"className="BBQPlacesListTitle">List of BBQ Places</h2>
+				<h2 id="listOfBBQRestaurants" className="BBQPlacesListTitle">
+					List of BBQ Places
+				</h2>
 				<PlaceList
 					{...this.props}
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
+				{/*Error Message when fetching data from foursquare*/}
 				{errorLoadingFourSquareData && (
 					<p className="errorLoadingFourSquareData">
 						!Error Fetching the requested data from FourSquare.
