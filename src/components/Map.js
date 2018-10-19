@@ -36,6 +36,7 @@ const MyMapComponent = withScriptjs(
 
 						return (
 							<Marker
+								aria-label="Marker"
 								icon={
 									marker.isOpen || arr.length === 1
 										? {
@@ -81,7 +82,10 @@ const MyMapComponent = withScriptjs(
 													}`}
 													alt={`${venueData.name}`}
 												/>
-												<div className="markersInfowindow">
+												<div
+													aria-label="Location Information"
+													className="markersInfowindow"
+												>
 													<p>
 														{
 															venueData.location
@@ -145,15 +149,16 @@ export default class Map extends Component {
 							<br />
 							Error fetching data from FourSquare.
 							<br />
-							Please check if you have the right
-							API keys or propably the quote was exceeded.
-							Check the README FOR MORE INFORMATION.
+							Please check if you have the right API keys or
+							propably the quote was exceeded. Check the README
+							FOR MORE INFORMATION.
 						</p>
 					</div>
 				)}
 				{!hasError && (
 					<MyMapComponent
 						role="application"
+						aria-label="Map"
 						{...this.props}
 						googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
 						async
@@ -178,9 +183,7 @@ export default class Map extends Component {
 							/>
 							<br />
 							<span className="oopsMessage">Oops!</span>
-							Failed to load Google Map API. While the issue is
-							being fixed, you can look at this delicious bbq
-							dish.
+							Failed to load Google Map API.
 							<br />
 							<span className="howToSolveMsg">
 								The problem can be the Google API key.

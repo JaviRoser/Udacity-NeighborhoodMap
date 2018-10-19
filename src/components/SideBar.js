@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PlaceList from "./PlaceList.js";
 import "../App.css";
 
-
 export default class SideBar extends Component {
 	state = {
 		inputQuery: "",
@@ -47,12 +46,10 @@ export default class SideBar extends Component {
 	};
 
 	render() {
-
 		const { errorLoadingFourSquareData } = this.props;
-		
+
 		return (
-			
-			<div className="SideBar">
+			<div aria-label="SideBar Menu" className="SideBar">
 				<input
 					tabIndex="0"
 					type={"search"}
@@ -64,15 +61,17 @@ export default class SideBar extends Component {
 					role="search"
 				/>
 
-				<h2 className="BBQPlacesListTitle">List of BBQ Places</h2>
+				<h2 id="listOfBBQRestaurants"className="BBQPlacesListTitle">List of BBQ Places</h2>
 				<PlaceList
 					{...this.props}
 					venues={this.filterBBQPlaces()}
 					onClickingAListItem={this.props.onClickingAListItem}
 				/>
 				{errorLoadingFourSquareData && (
-					<p className="errorLoadingFourSquareData">!Error Fetching the requested data from FourSquare.
-					Please Check the README to solve the problem.</p>
+					<p className="errorLoadingFourSquareData">
+						!Error Fetching the requested data from FourSquare.
+						Please Check the README to solve the problem.
+					</p>
 				)}
 
 				<div className="fourSquareBrand">

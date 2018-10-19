@@ -109,12 +109,6 @@ class App extends Component {
 			});
 	}
 	render() {
-		/*Handle Loading Error when fetching from FourSquare*/
-		// const { errorLoadingFourSquareData } = this.state;
-		// // if (errorLoadingFourSquareData) {
-		// 	return <div>Something Went Wrong!</div>;
-		// }
-
 		return (
 			<div className="App">
 				<div className="App-header">

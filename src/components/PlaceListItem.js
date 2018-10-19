@@ -4,7 +4,7 @@ export default class PlaceListItem extends Component {
 	render() {
 		return (
 			<li
-				aria-labelledby="listOfRestaurants"
+				aria-labelledby="listOfBBQRestaurants"
 				tabIndex="0"
 				className="bbqPlacesListItem"
 				onClick={() => this.props.onClickingAListItem(this.props)}
