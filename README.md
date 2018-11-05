@@ -54,6 +54,12 @@ Then,
 Each location has a marker, and when it is clicked, a info window will pop up and show data for each BBQ Restaurant. To filter 
 the data, use the search input and search by name. When clearing the search, the default markers and list of restaurants appear appear.
 
+## Important
+Since the Application uses Google Maps and FourSquare API's free plans, they are subject to a limit request per day, so when the app reaches the limit, the content will be unaivalable. To solve the issue, you can upgrade the plans when obtaining your new API's key. Check the links below to learn more:
+
+- Google Maps: **https://cloud.google.com/maps-platform/**
+- FourSquare: **https://developer.foursquare.com/**
+
 ## Website Layout
 ![neighborhood map](https://user-images.githubusercontent.com/25829140/46919416-0382dd80-cfad-11e8-9550-b31fa0927f12.JPG)
 
