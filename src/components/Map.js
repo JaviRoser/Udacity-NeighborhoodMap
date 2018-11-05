@@ -145,13 +145,10 @@ export default class Map extends Component {
 				{errorLoadingFourSquareData && (
 					<div className="showErrorMessageOnMap">
 						<p>
-							<span className="sadFaceFailMsg">:(</span>
-							<br />
+							<span className="sadFaceFailMsg">:( </span>
 							Error fetching data from FourSquare.
-							<br />
-							Please check if you have the right API keys or
-							propably the quote was exceeded. Check the README
-							FOR MORE INFORMATION.
+							Please check if you have the right API keys. Check
+							the README FOR MORE INFORMATION.
 						</p>
 					</div>
 				)}

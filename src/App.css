@@ -239,29 +239,31 @@ ol {
   color: var(--main-color);
   font-weight: 800;
   background: var(--ternary-color);
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
-/*Center the Error Message on the map*/
+/*Center the FourSquare Error Message on the map*/
 .showErrorMessageOnMap {
   opacity: 0.9;
-  text-align: center;
-  width: 200px;
+  text-align: justify;
+  width: 210px;
   position: absolute;
-  padding: 0.9rem;
-  top: 50%;
+  padding: 0.7rem;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--four-color);
   background-color: var(--main-color);
   z-index: 2;
-  line-height: 2rem;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
 }
+
 .sadFaceFailMsg {
   font-weight: 900;
-  font-size: 3em;
+  font-size: 2.5em;
   color: #dd0a35;
 }
 /*Center the Message*/
@@ -269,13 +271,13 @@ ol {
   opacity: 0.9;
   width: 200px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--four-color);
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  padding: 1.5rem;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
   line-height: 1.5rem;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
