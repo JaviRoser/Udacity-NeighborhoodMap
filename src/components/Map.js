@@ -160,7 +160,7 @@ export default class Map extends Component {
 						role="application"
 						aria-label="Map"
 						{...this.props}
-						googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDA8CQSg2h9TQmoTiQR6IqCrhFfO5QA-Ao"
+						googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=InsertKeyHere"
 						async
 						defer
 						loadingElement={<div style={{ height: `100%` }} />}
